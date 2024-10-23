@@ -148,9 +148,11 @@ int select_goat(list<Goat> trip)
 }
 
 // Task 3 - void add_goat(list<Goat> &trip, string names[], string colors[]) function header
-// DESCRIPTION:
+// DESCRIPTION: this function adds a new Goat object to the end of the list. Name, age, and color are all randomly selected and assigned to the Goat object
 // ARGUMENTS: list<Goat> &trip, which is a list of Goat objects
-// - 
+// - passing by reference because the list will be modified and this modification will also reflect in main()
+// - string names[], which is an array of names. A name will be randomly selected from this array
+// - string colors[], which is an array of colors. A color will be randomly selected from this array
 // RETURNS: nothing, void function
 void add_goat(list<Goat> &trip, string names[], string colors[])
 {
@@ -162,4 +164,22 @@ void add_goat(list<Goat> &trip, string names[], string colors[])
 
     cout << "This goat was successfully added to the end of the list: " << name << " (";
     cout << age << ", " << color << ")" << endl;
+}
+
+// Task 3 - void delete_goat(list<Goat> &trip) function header
+// DESCRIPTION:
+// this function works hand-in-hand with the select_goat() function 
+// ARGUMENTS: list<Goat> &trip, which is a list of Goat objects
+// - passing by reference because the list will be modified and this modification will also reflect in main()
+// RETURNS: nothing, void function
+void delete_goat(list<Goat> &trip)
+{
+    if (trip.empty()) // using .empty() member function, to check if the list is empty before proceeding
+    {
+        cout << "The list is currently empty. No goat can be deleted." << endl;
+        return; // exit function
+    }
+
+    int goatNum = select_goat(trip); // select_goat() function call, assigns user's choice of which Goat object (#) to delete to goatNum
+    auto it = trip.begin();
 }
