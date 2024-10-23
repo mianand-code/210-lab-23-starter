@@ -30,7 +30,7 @@ int main()
 
     bool again = true; // set bool flag to true until user wants to quit program
 
-    list<Goat> trip; // creation of an std::list 
+    list<Goat> trip; // creation of an std::list to hold Goat objects
 
     // code block to read & populate arrays for names
     ifstream fin("names.txt");
@@ -55,15 +55,19 @@ int main()
         switch (userChoice)
         {
             case 1:
+                add_goat(trip, names, colors); // add_goat() function call, will add a Goat object to the container/std::list
                 break;
 
             case 2:
+                delete_goat(trip); // delete_goat() function call, will delete a Goat object from the container/std::list (if the list is not empty)
                 break;
 
             case 3:
+                display_trip(trip); // display_trip() function call, will display the current list of Goat objects
                 break;
             
             case 4:
+                again = false; // set bool flag to false, to indicate user wishes to quit program
                 break;
             
             // user input validation for menu option # (has to be 1-4)
