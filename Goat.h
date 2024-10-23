@@ -10,7 +10,8 @@
 #include <iostream>
 using namespace std;
 
-class Goat { // creation of Goat Class
+// creation of Goat Class
+class Goat {
 private: // private member variables
     string name; // to hold goat's name
     int age; // to hold goat's age
@@ -18,9 +19,34 @@ private: // private member variables
 
 // public member functions
 public: 
+    // creation of a default constructor, Goat()
+    // DESCRIPTION: initializes age, name, and color to default values
+    // - name and color to empty strings
+    // - age to 0
+    // ARGUMENTS: no arguments/parameters
+    // RETURNS: no return type
     Goat()                          { name = ""; age = 0; color = ""; }
-    // write three more constructors
 
+    // write three more constructors
+    // creation of a partial constructor, Goat(string n)
+    // DESCRIPTION: initializes name by parameter, age to 0, and color to an empty string
+    // ARGUMENTS: string n, represents the goat's name
+    // RETURNS: no return type
+    Goat(string n)                  { name = n; age = 0; color = ""; }
+
+    // creation of a partial constructor, Goat(string n, int a)
+    // DESCRIPTION: initializes name and age by parameter, color to an empty string
+    // ARGUMENTS: string n, represents the goat's name
+    // RETURNS: no return type
+    Goat(string n, int a)           { name = n; age = a; color = ""; }
+
+    // creation of a full parameter constructor, Goat(string n, int a, string c)
+    // DESCRIPTION: initializes name, age, and color all by parameter
+    // ARGUMENTS: string n, represents the goat's name
+    // - int a, represents the goat's age
+    // - string c, represents the color of the goat
+    // RETURNS: no return type
+    Goat(string n, int a, string c) { name = n; age = a; color = c; }
 
     // setters and getters
     void set_name(string n)         { name = n; };
