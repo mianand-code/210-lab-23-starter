@@ -73,6 +73,13 @@ public:
     string get_color() const        { return color; } 
 
     // write overloaded < operator for the std::list
+    // this is needed so we can decide how we want Goat objects to be sorted
+    // in this case - we want to sort alphabetically, by name
+    // needed for std::list as well, if we want to use .sort() function
+    bool operator< (const Goat &other) const
+    {
+        return name < other.name; // we compare one Goat object with another one ("other") in order to sort by name
+    }
 };
 
 #endif
