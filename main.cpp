@@ -44,6 +44,13 @@ int main()
     while (fin1 >> colors[i++]);
     fin1.close();
 
+    // creation of a do-while loop so that the user can continue to select options until they wish to quit
+    do
+    {
+        int userChoice = main_menu(); // main_menu() function call, displays GM3K1 menu, 
+
+    } while (again); // as long as again is set to true
+
     return 0;
 }
 
@@ -65,7 +72,12 @@ int main_menu()
     cin >> userChoice;
 
     // input validation is performed, to ensure that the user does not input an invalid menu option #
-    // if they input an invalid choice, they will be prompted
+    // if they input an invalid choice, they will be prompted again until they enter a valid choice
+    while (userChoice < 1 || userChoice > 4)
+    {
+        cout << "ERROR: Choice must be between 1-4. Please enter a valid choice and try again: ";
+        cin >> userChoice;
+    }
 
     return userChoice; // return int userChoice to main()
 }
