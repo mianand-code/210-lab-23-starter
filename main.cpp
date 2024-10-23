@@ -114,8 +114,6 @@ int main_menu()
 // RETURNS:
 int select_goat(list<Goat> trip)
 {
-    int userChoice; // to hold user's choice for goat # they wish to select
-
     if (trip.empty()) // using .empty() member function, to check if the list is empty before proceeding
     {
         cout << "The list is currently empty. No goat can be selected." << endl;
@@ -124,8 +122,24 @@ int select_goat(list<Goat> trip)
 
     cout << "Goat selection menu:" << endl;
     int goatNum = 0; // to keep track of the # of goats in the list
-    for (auto goats : trip) // using a C++ 11 
+    for (auto goats : trip) // using a C++ 11 range loop and "auto" keyword to output contents of the list
     {
+        // calling all getters to output names, ages, and colors for each Goat object
+        cout << "[" << goatNum++ << "]" << goats.get_name() << " (";
+        cout << goats.get_age() << ", " << goats.get_color() << ")" << endl;
+    }
 
+    int userChoice; // to hold user's choice for goat # they wish to select
+    while (true) // while true loop that will continue to prompt user until they input a valid number for the goat they wish to delete
+    {
+        cout << "Enter the number of the goat you would like to delete: ";
+        cin >> userChoice;
+
+        if (userChoice > 0 && userChoice <= trip.size()) // using size() member function, to ensure that the user does not enter a number that is greater than the size of the list
+        {
+            return userChoice; // return int userChoice to main()
+        }
+        else
+            cout << "ERROR: "
     }
 }
