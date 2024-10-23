@@ -149,11 +149,17 @@ int select_goat(list<Goat> trip)
 
 // Task 3 - void add_goat(list<Goat> &trip, string names[], string colors[]) function header
 // DESCRIPTION:
-// ARGUMENTS:
+// ARGUMENTS: list<Goat> &trip, which is a list of Goat objects
+// - 
 // RETURNS: nothing, void function
 void add_goat(list<Goat> &trip, string names[], string colors[])
 {
     string name = names[rand() % SZ_NAMES]; // random selection of a name within the "names" array and assigning it to "name"
     string color = colors[rand() % SZ_COLORS]; // random selection of a color within the "colors" array and assigning it to "color"
     int age = rand() % (MAX_AGE + 1); // random assignment of a age between 0 - 20 (MAX_AGE) and assigning it to "name"
+
+    trip.push_back(Goat(name, age, color)); // push_back() function call, adds Goat objects to the end of the list with all 3 parameters
+
+    cout << "This goat was successfully added to the end of the list: " << name << " (";
+    cout << age << ", " << color << ")" << endl;
 }
