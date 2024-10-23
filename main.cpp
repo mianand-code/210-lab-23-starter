@@ -110,7 +110,7 @@ int main_menu()
 
 // Task 3 - int select_goat(list<Goat> trip) function header
 // DESCRIPTION: this function will output the contents of the list, prompt the user to select a Goat object (#) they would like to delete from the list, and return this choice to main()
-// - the function ensures that the list is not empty before proceeding with selection
+// - the function ensures that the list is not empty before proceeding with selection, for purposes of completeness
 // - the user's choice is also validated to ensure they do not select a # that is not within the range of the list size
 // this function works hand-in-hand with the delete_goat() function, because delete_goat() requires SELECTION of a specific goat
 // ARGUMENTS: list<Goat> trip, which is a list of Goat objects
@@ -119,7 +119,7 @@ int select_goat(list<Goat> trip)
 {
     if (trip.empty()) // using .empty() member function, to check if the list is empty before proceeding
     {
-        cout << "The list is currently empty. No goat can be selected." << endl;
+        cout << "The list is currently empty. No goat can be selected." << endl << endl;
         return -1; // return an error state
     }
 
@@ -163,7 +163,7 @@ void add_goat(list<Goat> &trip, string names[], string colors[])
     trip.push_back(Goat(name, age, color)); // push_back() function call, adds Goat objects to the end of the list with all 3 parameters
 
     cout << "This goat was successfully added to the end of the list: " << name << " (";
-    cout << age << ", " << color << ")" << endl;
+    cout << age << ", " << color << ")" << endl << endl;
 }
 
 // Task 3 - void delete_goat(list<Goat> &trip) function header
@@ -177,7 +177,7 @@ void delete_goat(list<Goat> &trip)
 {
     if (trip.empty()) // using .empty() member function, to check if the list is empty before proceeding
     {
-        cout << "The list is currently empty. No goat can be deleted." << endl;
+        cout << "The list is currently empty. No goat can be deleted." << endl << endl;
         return; // exit function
     }
 
@@ -190,4 +190,29 @@ void delete_goat(list<Goat> &trip)
     }
 
     trip.erase(it); // using .erase() member function, to erase the Goat object at the position of the iterator
+
+    cout << "The goat has been successfully deleted." << endl << endl;
+}
+
+// Task 3 - void display_trip(list<Goat> trip) function header
+// DESCRIPTION: this function neatly outputs the contents of the list
+// - the function notfies the user if the list is currently empty. This means they will have to add goats if they wish to see output
+// ARGUMENTS: list<Goat> &trip, which is a list of Goat objects
+// RETURNS: nothing, void function
+void display_trip(list<Goat> trip)
+{
+    if (trip.empty()) // using .empty() member function, to check if the list is empty before proceeding
+    {
+        cout << "The list is currently empty. No goats to display." << endl << endl;
+        return; // exit function
+    }
+
+    cout << "Here is the current trip:" << endl;
+    int goatNum = 0; // to keep track of the # of goats in the list
+    for (auto goats : trip) // using a C++ 11 range loop and "auto" keyword to output contents of the list
+    {
+        // calling all getters to output names, ages, and colors for each Goat object
+        cout << "[" << goatNum++ << "]" << goats.get_name() << " (";
+        cout << goats.get_age() << ", " << goats.get_color() << ")" << endl << endl;
+    }
 }
