@@ -109,9 +109,11 @@ int main_menu()
 }
 
 // int select_goat(list<Goat> trip) function header
-// DESCRIPTION:
-// ARGUMENTS: 
-// RETURNS:
+// DESCRIPTION: this function will output the contents of the list, prompt the user to select a Goat object (#) they would like to delete from the list, and return this choice to main()
+// - the function ensures that the list is not empty before proceeding with deletion
+// - the user's choice is also validated to ensure they do not select a # that is not within the range of the list size
+// ARGUMENTS: list<Goat> trip, which is a list of Goat objects
+// RETURNS: int userChoice, which is the user input for the Goat object # they would like to delete
 int select_goat(list<Goat> trip)
 {
     if (trip.empty()) // using .empty() member function, to check if the list is empty before proceeding
@@ -140,6 +142,6 @@ int select_goat(list<Goat> trip)
             return userChoice; // return int userChoice to main()
         }
         else
-            cout << "ERROR: "
+            cout << "ERROR: Choice must be greater than 0 and cannot exceed size of list. Please try again." << endl;
     }
 }
