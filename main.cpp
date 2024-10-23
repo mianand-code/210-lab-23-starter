@@ -30,6 +30,8 @@ int main()
 
     bool again = true; // set bool flag to true until user wants to quit program
 
+    list<Goat> trip; // creation of an std::list 
+
     // code block to read & populate arrays for names
     ifstream fin("names.txt");
     string names[SZ_NAMES];
@@ -47,7 +49,28 @@ int main()
     // creation of a do-while loop so that the user can continue to select options until they wish to quit
     do
     {
-        int userChoice = main_menu(); // main_menu() function call, displays GM3K1 menu, 
+        int userChoice = main_menu(); // main_menu() function call - displays GM3K1 menu, retrieves user's choice, assigns it to userChoice
+
+        // creation of a switch statement that handles cases of each numbered option based on userChoice
+        switch (userChoice)
+        {
+            case 1:
+                break;
+
+            case 2:
+                break;
+
+            case 3:
+                break;
+            
+            case 4:
+                break;
+            
+            // user input validation for menu option # (has to be 1-4)
+            // main_menu() function also handles user input validation, but it is good to include it here also for completeness
+            default:
+                cout << "Invalid choice." << endl;
+        }
 
     } while (again); // as long as again is set to true
 
