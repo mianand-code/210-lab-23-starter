@@ -110,7 +110,7 @@ int main_menu()
 
 // Task 3 - int select_goat(list<Goat> trip) function header
 // DESCRIPTION: this function will output the contents of the list, prompt the user to select a Goat object (#) they would like to delete from the list, and return this choice to main()
-// - the function ensures that the list is not empty before proceeding with deletion
+// - the function ensures that the list is not empty before proceeding with selection
 // - the user's choice is also validated to ensure they do not select a # that is not within the range of the list size
 // this function works hand-in-hand with the delete_goat() function, because delete_goat() requires SELECTION of a specific goat
 // ARGUMENTS: list<Goat> trip, which is a list of Goat objects
@@ -167,7 +167,8 @@ void add_goat(list<Goat> &trip, string names[], string colors[])
 }
 
 // Task 3 - void delete_goat(list<Goat> &trip) function header
-// DESCRIPTION:
+// DESCRIPTION: this function deletes a user-chosen Goat object within the list
+// - the function ensures that the list is not empty before proceeding with deletion
 // this function works hand-in-hand with the select_goat() function 
 // ARGUMENTS: list<Goat> &trip, which is a list of Goat objects
 // - passing by reference because the list will be modified and this modification will also reflect in main()
@@ -181,5 +182,12 @@ void delete_goat(list<Goat> &trip)
     }
 
     int goatNum = select_goat(trip); // select_goat() function call, assigns user's choice of which Goat object (#) to delete to goatNum
-    auto it = trip.begin();
+    // creation of an iterator using the C++ 11 "auto" keyword, since we cannot access objects by index
+    auto it = trip.begin(); // using .begin() member function to start at the beginning of the list
+    for (int i = 1; i < goatNum; i ++) // using a for loop to advance the iterator to the position of the Goat object we want to delete
+    {
+        it++;
+    }
+
+    trip.erase(it); // using .erase() member function, to erase the Goat object at the position of the iterator
 }
