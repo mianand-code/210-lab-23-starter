@@ -37,6 +37,7 @@ public:
     // creation of a partial constructor, Goat(string n, int a)
     // DESCRIPTION: initializes name and age by parameter, color to an empty string
     // ARGUMENTS: string n, represents the goat's name
+    // - int a, represents the goat's age
     // RETURNS: no return type
     Goat(string n, int a)           { name = n; age = a; color = ""; }
 
@@ -48,13 +49,28 @@ public:
     // RETURNS: no return type
     Goat(string n, int a, string c) { name = n; age = a; color = c; }
 
-    // setters and getters
+    // putting all setters together, to keep it organized
+    // void set_name(string n), void set_age(int a), void set_color(string c) function header
+    // DESCRIPTION: these functions will "set" the name, age, and color for each Goat object
+    // ARGUMENTS: string n, represents the goat's name
+    // - int a, represents the goat's age
+    // - string c, represents the color of the goat
+    // RETURNS: nothing, void functions
     void set_name(string n)         { name = n; };
-    string get_name() const         { return name; };
-    void set_age(int a)             { age = a; };
-    int get_age() const             { return age; }
-    void set_color(string c)        { color = c; }
-    string get_color() const        { return color; }
+    void set_age(int a)             { age = a; }; 
+    void set_color(string c)        { color = c; } 
+    
+    // putting all getters together, to keep it organized
+    // string get_name() const, int get_age() const, string get_color() const function header
+    // DESCRIPTION: these functions will "get" the name, age, and color values for each Goat object
+    // ARGUMENTS: no arguments/parameters
+    // RETURNS: the string value for name
+    //- the int value for age
+    // - the string value for color
+    // a trailing const is added to each, since getters do not change an object's data
+    string get_name() const         { return name; }; 
+    int get_age() const             { return age; } 
+    string get_color() const        { return color; } 
 
     // write overloaded < operator for the std::list
 };
