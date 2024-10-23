@@ -20,8 +20,8 @@ const int MAX_AGE = 20; // represents the maximum age to be assigned to a Goat o
 // function prototypes
 int main_menu();
 int select_goat(list<Goat> trip);
-void delete_goat(list<Goat> &trip);
 void add_goat(list<Goat> &trip, string [], string []);
+void delete_goat(list<Goat> &trip);
 void display_trip(list<Goat> trip);
 
 int main() 
@@ -81,9 +81,8 @@ int main()
     return 0;
 }
 
-// int main_menu() function header
-// DESCRIPTION: this function outputs a GM3K1 menu that loops until the user wishes to quit
-// the function obtains the user's choice for the menu option # they would like to select, validates it, and returns this choice to main()
+// Task 2 - int main_menu() function header
+// DESCRIPTION: this function outputs a GM3K1 menu, obtains the user's choice for the menu option # they would like to select, validates it, and returns this choice to main()
 // ARGUMENTS: no arguments/parameters
 // RETURNS: int userChoice, which is the user input for the menu option # they would like to select
 int main_menu()
@@ -107,4 +106,26 @@ int main_menu()
     }
 
     return userChoice; // return int userChoice to main()
+}
+
+// int select_goat(list<Goat> trip) function header
+// DESCRIPTION:
+// ARGUMENTS: 
+// RETURNS:
+int select_goat(list<Goat> trip)
+{
+    int userChoice; // to hold user's choice for goat # they wish to select
+
+    if (trip.empty()) // using .empty() member function, to check if the list is empty before proceeding
+    {
+        cout << "The list is currently empty. No goat can be selected." << endl;
+        return -1; // return an error state
+    }
+
+    cout << "Goat selection menu:" << endl;
+    int goatNum = 0; // to keep track of the # of goats in the list
+    for (auto goats : trip) // using a C++ 11 
+    {
+
+    }
 }

@@ -27,21 +27,21 @@ public:
     // RETURNS: no return type
     Goat()                          { name = ""; age = 0; color = ""; }
 
-    // write three more constructors
-    // creation of a partial constructor, Goat(string n)
+    // Task 1 - write three more constructors
+    // 1. creation of a partial constructor, Goat(string n)
     // DESCRIPTION: initializes name by parameter, age to 0, and color to an empty string
     // ARGUMENTS: string n, represents the goat's name
     // RETURNS: no return type
     Goat(string n)                  { name = n; age = 0; color = ""; }
 
-    // creation of a partial constructor, Goat(string n, int a)
+    // 2. creation of a partial constructor, Goat(string n, int a)
     // DESCRIPTION: initializes name and age by parameter, color to an empty string
     // ARGUMENTS: string n, represents the goat's name
     // - int a, represents the goat's age
     // RETURNS: no return type
     Goat(string n, int a)           { name = n; age = a; color = ""; }
 
-    // creation of a full parameter constructor, Goat(string n, int a, string c)
+    // 3. creation of a full parameter constructor, Goat(string n, int a, string c)
     // DESCRIPTION: initializes name, age, and color all by parameter
     // ARGUMENTS: string n, represents the goat's name
     // - int a, represents the goat's age
