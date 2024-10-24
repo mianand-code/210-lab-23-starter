@@ -56,8 +56,8 @@ public:
     // - int a, represents the goat's age
     // - string c, represents the color of the goat
     // RETURNS: nothing, void functions
-    void set_name(string n)         { name = n; };
-    void set_age(int a)             { age = a; }; 
+    void set_name(string n)         { name = n; }
+    void set_age(int a)             { age = a; }
     void set_color(string c)        { color = c; } 
     
     // putting all getters together, to keep it organized
@@ -68,7 +68,7 @@ public:
     //- the int value for age
     // - the string value for color
     // a trailing const is added to each, since getters do not change an object's data
-    string get_name() const         { return name; }; 
+    string get_name() const         { return name; }
     int get_age() const             { return age; } 
     string get_color() const        { return color; } 
 
